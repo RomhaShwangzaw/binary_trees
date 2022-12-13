@@ -8,12 +8,26 @@
 int binary_tree_balance(const binary_tree_t *tree)
 {
 	if (tree)
-	{
-		int l = 0, r = 0;
+		return (binary_tree_height(tree->left) - binary_tree_height(tree->right));
 
-		l = tree->left ? 1 + binary_tree_balance(tree->left) : 0;
-		r = tree->right ? 1 + binary_tree_balance(tree->right) : 0;
-		return (l - r);
+	return (0);
+}
+
+/**
+ * binary_tree_height - measures the height of a binary tree.
+ * @tree: a pointer to the root node of the tree to measure the height.
+ * Return: the height of the binary tree.
+ * Description: If tree is NULL, the function returns 0.
+ */
+size_t binary_tree_height(const binary_tree_t *tree)
+{
+	if (tree)
+	{
+		size_t l = 0, r = 0;
+
+		l = tree->left ? 1 + binary_tree_height(tree->left) : 1;
+		r = tree->right ? 1 + binary_tree_height(tree->right) : 1;
+		return ((l > r) ? l : r);
 	}
 	return (0);
 }
