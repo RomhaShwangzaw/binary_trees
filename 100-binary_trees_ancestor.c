@@ -39,7 +39,7 @@ binary_tree_t *lowest_common_ancestor(const binary_tree_t *first,
 	while (second)
 	{
 		if (second == first)
-			return (binary_tree_t *)(second);
+			return ((binary_tree_t *)second);
 		second = second->parent;
 	}
 	return (NULL);
