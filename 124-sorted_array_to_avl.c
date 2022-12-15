@@ -1,6 +1,6 @@
 #include "binary_trees.h"
 
-avl_t *aux_sort(avl_t *parent, int *array, size_t begin, size_t last);
+avl_t *aux_sort(avl_t *parent, int *array, int begin, int last);
 avl_t *sorted_array_to_avl(int *array, size_t size);
 
 /**
@@ -11,10 +11,10 @@ avl_t *sorted_array_to_avl(int *array, size_t size);
  * @last: position where the array ends.
  * Return: tree created.
  */
-avl_t *aux_sort(avl_t *parent, int *array, size_t begin, size_t last)
+avl_t *aux_sort(avl_t *parent, int *array, int begin, int last)
 {
 	avl_t *root;
-	size_t mid = 0;
+	int mid = 0;
 
 	if (begin <= last)
 	{
